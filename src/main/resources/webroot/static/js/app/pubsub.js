@@ -29,4 +29,6 @@ window.pubsub = (function() {
     }
 })();
 
-pubsub.stream("*").log("Bus activity");
+
+// For debugging..
+// pubsub.stream("*").log("Bus activity");
