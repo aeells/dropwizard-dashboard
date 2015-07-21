@@ -19,6 +19,10 @@
         };
     };
 
+    var notNull = function(input) {
+        return input != null;
+    };
+
     var healthcheckList = pubsub.stream("unhealthy")
         .merge(pubsub.stream("healthy"))
         .map(function(health) {
@@ -55,6 +59,13 @@
         enterHealthCheck.append("span")
             .attr("class", "name")
             .text(prop("name"));
+
+        enterHealthCheck.append("blockquote")
+            .attr("class", "message")
+            .classed("hidden", function(hc) {
+                return hc.message == null;
+            })
+            .text(prop("message"));
 
 
 
