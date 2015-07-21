@@ -35,3 +35,38 @@
     var $warning = $("#websocketConnectionWarning");
     wsBacon.isWebsocketOpen.assign($warning, "toggleClass", "hidden");
 })();
+
+
+/**
+ * Virtual machine / host information
+ */
+(function() {
+    var gauges = pubsub.stream("metrics").map(".gauges");
+
+    var streamGaugeValues = function(name) {
+        var correctGauge = function (all) {
+            return all[name];
+        };
+
+        return gauges.map(correctGauge)
+            .map(".value")
+            .skipDuplicates();
+    };
+
+
+    streamGaugeValues("jvm.attribute.vendor")
+        .onValue(function(vendor) {
+            $("#jvmVendorName").html(vendor);
+        });
+
+    streamGaugeValues("jvm.attribute.name")
+        .onValue(function(attribute) {
+            $("#jvmAttribute").html(attribute);
+        });
+
+    streamGaugeValues("jvm.attribute.uptime")
+        .onValue(function(uptime) {
+            var formatted = moment.humanizeDuration(uptime);
+            $("#serverTime").html(formatted);
+        });
+})();
