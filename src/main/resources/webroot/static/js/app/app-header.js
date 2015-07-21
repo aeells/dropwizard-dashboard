@@ -4,7 +4,10 @@
 (function() {
     var $heart = $("#heart");
 
-    pubsub.stream("*").onValue(function() {
+    var metricStream = pubsub.stream("metrics");
+    var healthStream = pubsub.stream("healthcheck");
+
+    metricStream.merge(healthStream).onValue(function() {
         $heart.fadeTo(100, 0.4, function () {
             $heart.fadeTo(300, 0.2);
         });
