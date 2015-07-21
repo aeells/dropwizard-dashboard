@@ -19,7 +19,7 @@
                 <div class="col-md-4" style="text-align: center">
                     <h1>Dropwizard Dashboard</h1>
 
-                    <div class="alert alert-info" data-bind="visible: !connectionToProxyEstablished">
+                    <div class="alert alert-info" id="websocketConnectionWarning">
                         Please wait while contact with server is established!
                     </div>
                 </div>
@@ -78,9 +78,13 @@
 		
         <script type="text/javascript" src="/static/js/lib/jquery.min.js"></script>
         <script type="text/javascript" src="/static/js/lib/bacon.min.js"></script>
-        <script type="text/javascript" src="/static/js/app/application.js"></script>
 
+
+        <script type="text/javascript" src="/static/js/app/pubsub.js"></script>
+        <script type="text/javascript" src="/static/js/app/global-bacon.js"></script>
         <script type="text/javascript" src="/static/js/app/app-header.js"></script>
+
+        <script type="text/javascript" src="/static/js/app/application.js"></script>
 
 
     </body>

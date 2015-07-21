@@ -26,3 +26,12 @@
         body.fadeTo(500, 1.0);
     });
 })();
+
+
+/**
+ * Display warning about websocket connection
+ */
+(function() {
+    var $warning = $("#websocketConnectionWarning");
+    wsBacon.isWebsocketOpen.assign($warning, "toggleClass", "hidden");
+})();
