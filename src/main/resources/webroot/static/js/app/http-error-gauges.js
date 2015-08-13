@@ -84,13 +84,13 @@
         pageComponent : component,
 
         onMetrics : function(metrics) {
-            var servletInfo = metrics.gauges;
+          var servletInfo = metrics.meters;
 
             var errors = {
-                "percent 4xx 1m": servletInfo["io.dropwizard.jetty.MutableServletContextHandler.percent-4xx-1m"].value,
-                "percent 4xx 5m": servletInfo["io.dropwizard.jetty.MutableServletContextHandler.percent-4xx-5m"].value,
-                "percent 5xx 1m": servletInfo["io.dropwizard.jetty.MutableServletContextHandler.percent-5xx-1m"].value,
-                "percent 5xx 5m": servletInfo["io.dropwizard.jetty.MutableServletContextHandler.percent-5xx-5m"].value
+                "percent 4xx 1m": servletInfo["io.dropwizard.jetty.MutableServletContextHandler.4xx-responses"].m1_rate,
+                "percent 4xx 5m": servletInfo["io.dropwizard.jetty.MutableServletContextHandler.4xx-responses"].m5_rate,
+                "percent 5xx 1m": servletInfo["io.dropwizard.jetty.MutableServletContextHandler.5xx-responses"].m1_rate,
+                "percent 5xx 5m": servletInfo["io.dropwizard.jetty.MutableServletContextHandler.5xx-responses"].m5_rate
             };
 
             bindings.httpErrors(errors);
