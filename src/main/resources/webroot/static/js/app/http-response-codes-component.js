@@ -21,14 +21,14 @@
 
         backgroundColor : {
             fill : "transparent"
-        }
+        },
 
-        /* Would be nice to apply proper colors to the different status codes (Green for 2xx and so on..)
-        slices: {
-            0: { color: 'yellow' },
-            1: { color: 'transparent' }
-        }
-        */
+        slices: [
+            {},
+            {color: 'green'},
+            {},
+            {color: 'red'}
+        ]
     };
 
     var component = {
