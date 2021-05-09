@@ -7,7 +7,7 @@
 
   <groupId>com.aeells</groupId>
   <artifactId>dropwizard-dashboard</artifactId>
-  <version>3.0.0</version>
+  <version>3.5.4</version>
 
   <properties>
     <main.class>com.developerb.dd.DropwizardDashboardStarter</main.class>
